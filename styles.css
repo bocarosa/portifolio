@@ -1,49 +1,75 @@
-/* Estilos gerais */
-body {
-    font-family: Arial, sans-serif;
+* {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    box-sizing: border-box;
 }
 
-h1, h2 {
-    color: #333;
+:root{
+    --preto: #000000;
+    --marinho: #0099ff;
+    --amarelo-claro:#5699cf;
+    --roxo-claro:#62cad1;
+    --verde: #60a0ca;
+    --azul-claro: #E4EFE7;
+    --branco: #FFFFFF;
+    --marron-claro: #FAF1E6;
 }
 
-a {
-    color: #007BFF;
+body{
+    height: 100vh;
+    box-sizing: border-box;
+    background-color: var(--azul-claro);
+    color: var(--preto);
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    display: flex; 
+    width: 100%;
+    background-color: var(--marinho);
+    padding: 1rem;
+    justify-content: center;
+}
+
+.portfolio h1{
+    font-size: 4rem;
+    color: var(--amarelo-claro);
+}
+main {
+    margin: 40px auto;
+    padding: 20px;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.disciplina {
+    display: flex;
+    justify-content: center;
+    background-color: var(--branco);
+    border-radius: 10px;
+    padding: 30px;
+    width: 80%;
+    min-width: 280px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.disciplina:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 0 0 25px rgba(0, 0, 0, 0.2);
+}
+
+.disciplina a {
+    color: var(--verde);
+    font-size: 5rem;
     text-decoration: none;
-    margin-right: 15px;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* Estilizando o botão */
-button {
-    background-color: #28a745;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #218838;
-}
-
-/* Estilizando a responsividade */
-@media screen and (max-width: 600px) {
-    body {
-        padding: 10px;
-    }
-
-    h1 {
-        font-size: 1.5em;
-    }
-
-    section {
-        margin-bottom: 20px;
-    }
 }
