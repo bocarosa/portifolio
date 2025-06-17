@@ -7,12 +7,12 @@
 :root {
     --preto: #000000;
     --marinho: #3d5f9e;
-    --amarelo-claro: #FFF2AF;
-    --roxo-claro: #B2A5FF;
-    --verde: #99BC85;
-    --azul-claro: #E4EFE7;
-    --branco: #FFFFFF;
-    --marron-claro: #FAF1E6;
+    --amarelo-claro: #3e5a97;
+    --roxo-claro: #4b90eb;
+    --verde: #8bbdeb;
+    --azul-claro: #57ebeb;
+    --branco: #24b4a1;
+    --marron-claro: #194772;
 }
 
 body {
