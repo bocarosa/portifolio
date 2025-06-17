@@ -7,7 +7,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #f0f2bd;
+  background-color: #8ee1ec;
 }
 
 header {
@@ -36,7 +36,7 @@ header {
 
 .menu_externo li a,
 .menu_interno li a {
-  color: #ecf0f1;
+  color: #b1d3ee;
   text-decoration: none;
   font-size: 18px;
   padding: 10px 15px;
