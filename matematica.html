@@ -3,114 +3,320 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfólio de Física</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    :root {
+      --azul-claro: #8ee1ec;
+      --azul-escuro: #2c3e50;
+      --azul-card: #73c2c5;
+      --azul-card-back: #549ba1;
+      --cinza-claro: #eeeeee;
+      --branco: #ffffff;
+      --preto: #333333;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--azul-claro);
+      color: var(--preto);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: var(--azul-escuro);
+      padding: 20px 40px;
+      width: 100%;
+    }
+
+    .menus {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .menu_externo ul,
+    .menu_interno ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    .menu_externo li a,
+    .menu_interno li a {
+      color: #b1d3ee;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 10px 15px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      display: block;
+      position: relative;
+    }
+
+    .menu_externo li a:hover,
+    .menu_interno li a:hover {
+      background-color: #3498db;
+      transform: translateY(-2px);
+      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .menu_externo li a::before,
+    .menu_interno li a::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #ecf0f1;
+      transition: width 0.3s ease;
+    }
+
+    .menu_externo li a:hover::before,
+    .menu_interno li a:hover::before {
+      width: 100%;
+    }
+
+    main {
+      flex-grow: 1;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    footer {
+      background-color: var(--azul-escuro);
+      color: #ecf0f1;
+      text-align: center;
+      padding: 20px;
+      width: 100%;
+    }
+
+    .cards-section {
+      background-color: var(--cinza-claro);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .cards-section h2 {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--preto);
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    ul.cards-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      list-style: none;
+      justify-content: center;
+      padding: 0;
+    }
+
+    .flip-card {
+      perspective: 1000px;
+      width: 45%;
+      min-height: 200px;
+      cursor: pointer;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front,
+    .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      backface-visibility: hidden;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      color: var(--preto);
+      box-sizing: border-box;
+    }
+
+    .card-front {
+      background-color: var(--azul-card);
+      border-left: 4px solid #71c0bb;
+    }
+
+    .card-back {
+      background-color: var(--azul-card-back);
+      color: #f0f0f0;
+      border-left: 4px solid #3d7a84;
+      transform: rotateY(180deg);
+    }
+
+    .card-front h3,
+    .card-back p {
+      margin-bottom: 1rem;
+    }
+
+    .card-front p,
+    .card-back p {
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 768px) {
+      .flip-card {
+        width: 90%;
+      }
+
+      .menus {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .menu_externo ul,
+      .menu_interno ul {
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
 
 <body>
   <header>
-    <nav class="menu">
-      <ul>
-        <li><a href="#atividades">Atividades</a></li>
-        <li><a href="#laboratorio">Laboratório</a></li>
-        <li><a href="#provas">Provas</a></li>
-      </ul>
-    </nav>
+    <section class="menus">
+      <nav class="menu_externo">
+        <ul>
+          <li><a href="#atividades">Atividades</a></li>
+          <li><a href="#laboratorio">Laboratório</a></li>
+          <li><a href="#provas">Provas</a></li>
+        </ul>
+      </nav>
+      <nav class="menu_interno">
+        <ul>
+          <li><a href="#atividades">Atividades</a></li>
+          <li><a href="#laboratorio">Laboratório</a></li>
+          <li><a href="#provas">Provas</a></li>
+        </ul>
+      </nav>
+    </section>
   </header>
 
   <main>
-    <h1>Portfólio de Física</h1>
-
-    <section id="atividades">
+    <section class="cards-section atividades" id="atividades">
       <h2>Atividades</h2>
-      <div class="card-container">
-        <div class="flip-card">
+      <ul class="cards-list">
+        <li class="flip-card">
           <div class="flip-card-inner">
-            <div class="flip-card-front">
+            <div class="card-front">
               <h3>Atividade 01</h3>
-              <p>Clique para ver mais</p>
+              <p>Física é a ciência que estuda a natureza e os fenômenos que a envolvem.</p>
             </div>
-            <div class="flip-card-back">
-              <p>Física é a ciência que estuda a natureza e os fenômenos que a envolvem, desde as partículas até o universo.</p>
+            <div class="card-back">
+              <p>Essa atividade aborda os conceitos básicos de movimento e força aplicados no dia a dia.</p>
             </div>
           </div>
-        </div>
-
-        <div class="flip-card">
+        </li>
+        <li class="flip-card">
           <div class="flip-card-inner">
-            <div class="flip-card-front">
+            <div class="card-front">
               <h3>Atividade 02</h3>
-              <p>Clique para ver mais</p>
+              <p>Aplicações práticas da física na tecnologia e no cotidiano.</p>
             </div>
-            <div class="flip-card-back">
-              <p>A Física tem aplicações em várias áreas, como medicina, astronomia, engenharia e tecnologia.</p>
+            <div class="card-back">
+              <p>Estudo dos princípios da eletricidade e magnetismo para desenvolver circuitos simples.</p>
             </div>
           </div>
-        </div>
-      </div>
+        </li>
+      </ul>
     </section>
 
-    <section id="laboratorio">
+    <section class="cards-section laboratorio" id="laboratorio">
       <h2>Laboratório</h2>
-      <div class="card-container">
-        <div class="flip-card">
+      <ul class="cards-list">
+        <li class="flip-card">
           <div class="flip-card-inner">
-            <div class="flip-card-front">
+            <div class="card-front">
               <h3>Laboratório 01</h3>
-              <p>Clique para ver mais</p>
+              <p>Estudo da luz, reflexão, refração e difração.</p>
             </div>
-            <div class="flip-card-back">
-              <p>Analisa a luz e seus fenômenos, como reflexão, refração e difração.</p>
+            <div class="card-back">
+              <p>Experimentos com prismas e lentes para entender os fenômenos ópticos.</p>
             </div>
           </div>
-        </div>
-
-        <div class="flip-card">
+        </li>
+        <li class="flip-card">
           <div class="flip-card-inner">
-            <div class="flip-card-front">
+            <div class="card-front">
               <h3>Laboratório 02</h3>
-              <p>Clique para ver mais</p>
+              <p>Análise das ondas sonoras e eletromagnéticas.</p>
             </div>
-            <div class="flip-card-back">
-              <p>Estuda ondas, como as sonoras e eletromagnéticas, e como elas se propagam.</p>
+            <div class="card-back">
+              <p>Experimentos sobre propagação, frequência e amplitude de ondas.</p>
             </div>
           </div>
-        </div>
-      </div>
+        </li>
+      </ul>
     </section>
 
-    <section id="provas">
+    <section class="cards-section provas" id="provas">
       <h2>Provas</h2>
-      <div class="card-container">
-        <div class="flip-card">
+      <ul class="cards-list">
+        <li class="flip-card">
           <div class="flip-card-inner">
-            <div class="flip-card-front">
+            <div class="card-front">
               <h3>Prova 01</h3>
-              <p>Clique para ver mais</p>
+              <p>Eletricidade e magnetismo básicos.</p>
             </div>
-            <div class="flip-card-back">
-              <p>Explora eletricidade e magnetismo: cargas, campos e correntes elétricas.</p>
+            <div class="card-back">
+              <p>Estudo das cargas, campos elétricos e circuitos magnéticos.</p>
             </div>
           </div>
-        </div>
-
-        <div class="flip-card">
+        </li>
+        <li class="flip-card">
           <div class="flip-card-inner">
-            <div class="flip-card-front">
+            <div class="card-front">
               <h3>Prova 02</h3>
-              <p>Clique para ver mais</p>
+              <p>Teoria da relatividade e mecânica quântica.</p>
             </div>
-            <div class="flip-card-back">
-              <p>Inclui teoria da relatividade e mecânica quântica para descrever o comportamento das partículas.</p>
+            <div class="card-back">
+              <p>Conceitos fundamentais para partículas em alta velocidade e escala atômica.</p>
             </div>
           </div>
-        </div>
-      </div>
+        </li>
+      </ul>
     </section>
   </main>
 
+  <footer>
+    <p>© 2025 Portfólio de Física</p>
+  </footer>
+
   <script>
+    // Ativa o flip ao clicar no card
     document.querySelectorAll('.flip-card').forEach(card => {
       card.addEventListener('click', () => {
         card.classList.toggle('flipped');
